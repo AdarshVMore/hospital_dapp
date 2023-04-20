@@ -3,7 +3,7 @@ import AdminHome from "../../components/adminHome/AdminHome";
 
 function Admin() {
   return (
-    <div className="bg-red-300">
+    <div>
       <AdminHome />
     </div>
   );

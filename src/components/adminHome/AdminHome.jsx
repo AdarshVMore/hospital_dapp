@@ -2,61 +2,96 @@ import React, { useState, useEffect } from "react";
 import "./admin.css";
 
 function AdminHome() {
-  const [btnValue, setBtnValue] = useState(0);
+  const [selectedBtn, setSelectedBtn] = useState(0);
   const [heading, setHeading] = useState("");
+  const [data, setData] = useState([
+    {
+      name: "Alice",
+      time: new Date("2023-04-19T10:30:00Z"),
+    },
+    {
+      name: "Bob",
+      time: new Date("2023-04-20T14:45:00Z"),
+    },
+    {
+      name: "Charlie",
+      time: new Date("2023-04-18T08:15:00Z"),
+    },
+    {
+      name: "David",
+      time: new Date("2023-04-21T16:00:00Z"),
+    },
+    {
+      name: "Eve",
+      time: new Date("2023-04-17T19:20:00Z"),
+    },
+  ]);
 
   useEffect(() => {
-    if (btnValue === 0) {
+    if (selectedBtn === 0) {
       setHeading("All Applications");
     }
-    if (btnValue === 1) {
+    if (selectedBtn === 1) {
       setHeading("New Applications");
     }
-    if (btnValue === 2) {
+    if (selectedBtn === 2) {
       setHeading("Under Applications");
     }
-    if (btnValue === 3) {
+    if (selectedBtn === 3) {
       setHeading("Verified Applications");
     }
-    if (btnValue === 4) {
+    if (selectedBtn === 4) {
       setHeading("Rejected Applications");
     }
-  }, [btnValue]);
+
+    // remove the "selected" class from all buttons except the clicked one
+    const buttons = document.querySelectorAll(".btns button");
+    buttons.forEach((button, index) => {
+      if (index !== selectedBtn) {
+        button.classList.remove("selected");
+      }
+    });
+  }, [selectedBtn]);
 
   return (
     <div className="admin">
       <div className="btns">
         <button
+          id={`${selectedBtn === 0 ? "selected" : ""}`}
           onClick={() => {
-            setBtnValue(0);
+            setSelectedBtn(0);
           }}
         >
           All
         </button>
         <button
+          id={`${selectedBtn === 1 ? "selected" : ""}`}
           onClick={() => {
-            setBtnValue(1);
+            setSelectedBtn(1);
           }}
         >
           New Applications
         </button>
         <button
+          id={`${selectedBtn === 2 ? "selected" : ""}`}
           onClick={() => {
-            setBtnValue(2);
+            setSelectedBtn(2);
           }}
         >
           UnderVerification
         </button>
         <button
+          id={`${selectedBtn === 3 ? "selected" : ""}`}
           onClick={() => {
-            setBtnValue(3);
+            setSelectedBtn(3);
           }}
         >
           Verified
         </button>
         <button
+          id={`${selectedBtn === 4 ? "selected" : ""}`}
           onClick={() => {
-            setBtnValue(4);
+            setSelectedBtn(4);
           }}
         >
           Rejected
@@ -66,19 +101,21 @@ function AdminHome() {
         <div className="top">
           <p className="heading">{heading}</p>
           <div className="colors">
-            <div className="transparent"></div>
-            <div className="yellow"></div>
-            <div className="green"></div>
-            <div className="red"></div>
+            <div className="c transparent"></div>
+            <div className="c yellow"></div>
+            <div className="c green"></div>
+            <div className="c red"></div>
           </div>
         </div>
 
         <div className="allList">
-          <div className="eachList">
-            <div className="docName"></div>
-            <div className="timeDate"></div>
-            <div className="level"></div>
-          </div>
+          {data.map((item, index) => (
+            <div className="eachList" key={index}>
+              <div className="docName">{item.name}</div>
+              <div className="timeDate">{item.time.toString()}</div>
+              <div className="level"></div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -2,6 +2,8 @@
   display: flex;
 }
 
+/* ==========================================   SIDEBAR BUTTONS  ======================================= */
+
 .admin .btns {
   display: flex;
   align-items: center;
@@ -10,6 +12,7 @@
   height: 100vh;
   gap: 1rem;
   margin: 0 5vw;
+  width: 24vw;
 }
 .admin .btns button {
   width: 222px;
@@ -18,4 +21,52 @@
   border-radius: 100px;
   color: #57c5b6;
   background-color: #1a5f7a70;
+  font-weight: 500;
+}
+
+.admin .listOfApplications {
+  width: 60vw;
+}
+
+.admin .top {
+  display: flex;
+  justify-content: space-between;
+  width: 74vw;
+  padding: 30px;
+}
+.admin #selected {
+  background-color: #159895;
+  color: #002b5b;
+  font-weight: 500;
+}
+
+.admin .top .heading {
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+}
+
+/* ===========================================   CIRCLES COLORS   ======================================= */
+
+.admin .colors {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.c {
+  width: 20px;
+  height: 20px;
+  border-radius: 100px;
+}
+.transparent {
+  border: 1px solid #1a5f7a;
+}
+.yellow {
+  background-color: yellow;
+}
+.green {
+  background-color: green;
+}
+.red {
+  background-color: orange;
 }
