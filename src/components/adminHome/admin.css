@@ -1,0 +1,21 @@
+.admin {
+  display: flex;
+}
+
+.admin .btns {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  gap: 1rem;
+  margin: 0 5vw;
+}
+.admin .btns button {
+  width: 222px;
+  border: 1px solid #1a5f7a;
+  height: 40px;
+  border-radius: 100px;
+  color: #57c5b6;
+  background-color: #1a5f7a70;
+}

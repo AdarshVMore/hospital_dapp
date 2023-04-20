@@ -1,0 +1,84 @@
+.form-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* =============================   SLIDER   ============================= */
+
+.top-most {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+}
+.slide-btn {
+  width: 250px;
+  height: 40px;
+  background-color: #1a5f7a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  border-radius: 100px;
+}
+.slide-btn .slider {
+  position: absolute;
+  z-index: 1;
+  background: #159895;
+  width: 125px;
+  height: 40px;
+  border-radius: 100px;
+  transition: 0.3s ease-in-out;
+}
+.slide-btn .patient,
+.slide-btn .doctor {
+  position: relative;
+  z-index: 2;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* =====================   FORMS  ====================== */
+
+.asADocter form,
+.asAPatient form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.asADocter form input,
+.asAPatient form input {
+  padding: 10px 20px;
+  border-radius: 100px;
+  text-align: center;
+  width: 30vw;
+  height: 50px;
+  color: white;
+  outline: none;
+  background: #1a5f7a72;
+  border: 1px solid #1a5f7a;
+  min-width: 350px;
+}
+
+.asADocter form button,
+.asAPatient form button {
+  color: #57c5b6;
+  height: 45px;
+  background-color: #1a5f7a;
+  width: 138px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}

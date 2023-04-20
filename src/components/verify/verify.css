@@ -1,0 +1,74 @@
+.verify form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 80px;
+}
+
+.verify form .file-input {
+  width: 350px;
+  color: white;
+  outline: none;
+  background: #1a5f7a72;
+  border: 1px solid #1a5f7a;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.verify form #file-upload-button {
+  width: 10px;
+}
+
+.aboutYou,
+.eduBackground {
+  height: 22vh;
+  width: 45vw;
+  color: white;
+  outline: none;
+  background: #1a5f7a72;
+  border: 1px solid #1a5f7a;
+  padding: 5px 20px;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 350px;
+}
+.aboutYou textarea,
+.eduBackground textarea {
+  width: 43vw;
+  margin-top: 5px;
+  height: 15vh;
+  outline: none;
+  color: white;
+  font: 12px;
+  background-color: transparent;
+  resize: none;
+  font-size: 12px;
+  min-width: 330px;
+}
+.HCAddress {
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 30vw;
+  height: 50px;
+  color: white;
+  outline: none;
+  background: #1a5f7a72;
+  border: 1px solid #1a5f7a;
+  min-width: 350px;
+  font-size: 12px;
+}
+
+.verify button {
+  color: #57c5b6;
+  height: 45px;
+  background-color: #1a5f7a;
+  width: 138px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
