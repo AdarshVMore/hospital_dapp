@@ -57,6 +57,7 @@
   width: 20px;
   height: 20px;
   border-radius: 100px;
+  cursor: pointer;
 }
 .new {
   border: 1px solid #1a5f7a;
