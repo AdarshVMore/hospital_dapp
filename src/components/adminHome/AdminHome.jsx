@@ -7,23 +7,38 @@ function AdminHome() {
   const [data, setData] = useState([
     {
       name: "Alice",
-      time: new Date("2023-04-19T10:30:00Z"),
+      time: "2023-04-19 10:30",
+      state: "new",
     },
     {
       name: "Bob",
-      time: new Date("2023-04-20T14:45:00Z"),
+      time: "2023-04-20 14:45 ",
+      state: "new",
     },
     {
       name: "Charlie",
-      time: new Date("2023-04-18T08:15:00Z"),
+      time: "2023-04-18 08:15 ",
+      state: "verified",
     },
     {
       name: "David",
-      time: new Date("2023-04-21T16:00:00Z"),
+      time: "2023-04-21 16:00 ",
+      state: "rejected",
     },
     {
       name: "Eve",
-      time: new Date("2023-04-17T19:20:00Z"),
+      time: "2023-04-17 19:20 ",
+      state: "under verification",
+    },
+    {
+      name: "Bob",
+      time: "2023-04-20 14:45 ",
+      state: "rejected",
+    },
+    {
+      name: "Charlie",
+      time: "2023-04-18 08:15 ",
+      state: "verified",
     },
   ]);
 
@@ -101,21 +116,97 @@ function AdminHome() {
         <div className="top">
           <p className="heading">{heading}</p>
           <div className="colors">
-            <div className="c transparent"></div>
-            <div className="c yellow"></div>
-            <div className="c green"></div>
-            <div className="c red"></div>
+            <div className="c new"></div>
+            <div className="c under-verification"></div>
+            <div className="c verified"></div>
+            <div className="c rejected"></div>
           </div>
         </div>
 
         <div className="allList">
-          {data.map((item, index) => (
-            <div className="eachList" key={index}>
-              <div className="docName">{item.name}</div>
-              <div className="timeDate">{item.time.toString()}</div>
-              <div className="level"></div>
+          {selectedBtn === 0 &&
+            data.map((item, index) => (
+              <div className="eachList" key={index}>
+                <div className="docName">
+                  Dr. {selectedBtn === 0 ? item.name : ""}
+                </div>
+                <div className="right">
+                  <div className="timeDate">{item.time.toString()}</div>
+                  {item.state === "new" ? <div className="c new"></div> : ""}
+                  {item.state === "under verification" ? (
+                    <div className="c under-verification"></div>
+                  ) : (
+                    ""
+                  )}
+                  {item.state === "verified" ? (
+                    <div className="c verified"></div>
+                  ) : (
+                    ""
+                  )}
+                  {item.state === "rejected" ? (
+                    <div className="c rejected"></div>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              </div>
+            ))}
+          {selectedBtn === 1 && (
+            <div>
+              {data
+                .filter((item) => item.state === "new")
+                .map((item, index) => (
+                  <div className="eachList" key={index}>
+                    <div className="docName">Dr. {item.name}</div>
+                    <div className="right">
+                      <div className="timeDate">{item.time.toString()}</div>
+                    </div>
+                  </div>
+                ))}
             </div>
-          ))}
+          )}
+          {selectedBtn === 2 && (
+            <div>
+              {data
+                .filter((item) => item.state === "under verification")
+                .map((item, index) => (
+                  <div className="eachList" key={index}>
+                    <div className="docName">Dr. {item.name}</div>
+                    <div className="right">
+                      <div className="timeDate">{item.time.toString()}</div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          )}
+          {selectedBtn === 3 && (
+            <div>
+              {data
+                .filter((item) => item.state === "verified")
+                .map((item, index) => (
+                  <div className="eachList" key={index}>
+                    <div className="docName">Dr. {item.name}</div>
+                    <div className="right">
+                      <div className="timeDate">{item.time.toString()}</div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          )}
+          {selectedBtn === 4 && (
+            <div>
+              {data
+                .filter((item) => item.state === "rejected")
+                .map((item, index) => (
+                  <div className="eachList" key={index}>
+                    <div className="docName">Dr. {item.name}</div>
+                    <div className="right">
+                      <div className="timeDate">{item.time.toString()}</div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
