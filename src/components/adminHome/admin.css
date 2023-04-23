@@ -1,5 +1,6 @@
 .admin {
   display: flex;
+  width: 100vw;
 }
 
 /* ==========================================   SIDEBAR BUTTONS  ======================================= */
@@ -12,7 +13,8 @@
   height: 100vh;
   gap: 1rem;
   margin: 0 5vw;
-  width: 24vw;
+  width: 20%;
+  /* width: 24vw; */
 }
 .admin .btns button {
   width: 222px;
@@ -24,14 +26,16 @@
   font-weight: 500;
 }
 
-.admin .listOfApplications {
-  width: 60vw;
+.admin .listOfApplicants {
+  width: 100%;
+  padding: 0 50px 0 0;
 }
 
 .admin .top {
   display: flex;
   justify-content: space-between;
-  width: 74vw;
+  /* width: 74vw; */
+  /* width: 70%; */
   padding: 30px;
 }
 .admin #selected {

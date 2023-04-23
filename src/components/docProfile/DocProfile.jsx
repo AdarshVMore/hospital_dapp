@@ -1,6 +1,6 @@
 import React from "react";
 
-function DocProfile() {
+function DocProfile({ contract, account }) {
   return <div>DocProfile</div>;
 }
 

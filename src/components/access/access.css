@@ -1,0 +1,52 @@
+.access {
+  width: 100%;
+}
+.access .top {
+  /* width: 100%; */
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.access .top input {
+  width: 50%;
+  background-color: transparent;
+  border: 1px solid #1a5f7a;
+  border-radius: 100px;
+  padding: 10px 20px;
+  height: 40px;
+  color: white;
+  font-size: 18px;
+  outline: none;
+  min-width: 350px;
+}
+.access .top button {
+  width: 15%;
+  border-radius: 100px;
+  font-size: 20px;
+}
+
+/* =============================================   ACCESS LIST  ========================================== */
+
+.access .accessList {
+  width: 100%;
+  margin-top: 30px;
+}
+.access .accessList .eachAccess {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: #1a5f7a76;
+  border: 1px solid #1a5f7a;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.access .accessList .eachAccess button {
+  padding: 7px 20px;
+  background-color: #57c5b636;
+  color: #57c5b6;
+  border-radius: 5px;
+}

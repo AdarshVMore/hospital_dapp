@@ -1,0 +1,87 @@
+.eachDocApplication {
+  display: flex;
+  width: 100vw;
+  padding: 50px 0 30px 0;
+}
+
+.eachDocApplication .sidebar-backButton {
+  width: 15%;
+  margin: 0 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.eachDocApplication .sidebar-backButton button {
+  width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  background-color: #159895;
+  color: #002b5b;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.eachApplication .date-time {
+  font-size: 15px;
+  color: #23799a;
+  font-weight: 500;
+}
+
+.eachApplication .docName {
+  font-size: 30px;
+  color: #159895;
+  font-weight: 600;
+  margin: 30px 0 40px 0;
+}
+
+.eachApplication .about .text {
+  width: 98%;
+}
+
+.eachDocApplication .eachApplication {
+  width: 90%;
+  padding: 30px;
+  /* margin-left: 60px; */
+  background-color: #1a5f7a76;
+  border-radius: 10px;
+  border: 1px solid #1a5f7a;
+  margin-right: 70px;
+}
+.eachDocApplication .eachApplication div p {
+  margin-bottom: 20px;
+  color: #159895;
+  margin-left: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.eachDocApplication .eachApplication .heading,
+.eachApplication a {
+  color: #159895;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 0;
+}
+
+.eachApplication .bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.eachApplication .about {
+  margin-top: 50px;
+}
+
+.eachApplication .left {
+  display: flex;
+  gap: 1rem;
+}
+.eachApplication button {
+  padding: 7px 25px;
+  background-color: #1a5f7a;
+  color: #159895;
+  border-radius: 5px;
+  margin-top: 20px;
+}

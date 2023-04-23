@@ -1,10 +1,10 @@
 import React from "react";
 import AdminHome from "../../components/adminHome/AdminHome";
 
-function Admin() {
+function Admin({ contract, account }) {
   return (
     <div>
-      <AdminHome />
+      <AdminHome contract={contract} account={account} />
     </div>
   );
 }

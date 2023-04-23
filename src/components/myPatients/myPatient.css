@@ -1,0 +1,47 @@
+.myPatients {
+  width: 100%;
+}
+
+/* =====================================   COLORS  ===================================== */
+.myPatients .colors {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: end;
+}
+.myPatients .colors .c {
+  width: 20p;
+  height: 20px;
+  border-radius: 100px;
+  margin-bottom: 30px;
+}
+
+.myPatients .yellow {
+  background-color: yellow;
+}
+.myPatients .green {
+  background-color: green;
+}
+
+/* ============================================   EACH PATIENT  =========================== */
+
+.myPatients .eachPatient {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: #1a5f7a85;
+  border-radius: 10px;
+  border: 1px solid #1a5f7a;
+}
+
+.eachPatient p {
+  color: white;
+  font-weight: 500;
+}
+.eachPatient .treatmentState {
+  color: #57c5b6;
+  background-color: #1a5f7a;
+  padding: 5px 20px;
+  border-radius: 5px;
+}

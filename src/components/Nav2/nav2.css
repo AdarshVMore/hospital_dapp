@@ -1,0 +1,26 @@
+.nav2 {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.nav2 button {
+  color: #57c5b6;
+  font-size: 20px;
+  padding: 7px 25px;
+  border-radius: 5px;
+}
+.nav2 .btnBgc {
+  background-color: #57c5b638;
+}
+
+/* ====================================   MAIN CONTAINER   ================================== */
+
+.nav2-Maincontainer .mainContainer {
+  margin: 30px 120px 30px 120px;
+  background-color: #1a5f7a60;
+  border: 1px solid #1a5f7a;
+  border-radius: 10px;
+  padding: 50px 80px;
+}

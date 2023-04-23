@@ -1,0 +1,121 @@
+.uploadForm {
+  margin: 30px 120px;
+  background-color: #1a5f7a4a;
+  border: 1px solid #1a5f7a;
+  border-radius: 10px;
+  /* padding: 10px 20px; */
+}
+
+.uploadForm form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.uploadForm .form-top {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 30px;
+}
+.uploadForm form .form-left {
+  display: flex;
+  flex-direction: column;
+}
+.uploadForm form .form-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.uploadForm form div {
+  display: flex;
+  margin: 20px;
+  width: 100%;
+  justify-content: space-between;
+}
+.uploadForm form .symptoms textarea {
+  width: 75%;
+  resize: none;
+  height: 150px;
+  background-color: #1a5f7a7f;
+  border-radius: 10px;
+  margin: 0 20px;
+  outline: none;
+  padding: 10px;
+  color: white;
+}
+.uploadForm form .diagnosis textarea {
+  width: 75%;
+  padding: 10px;
+  height: 150px;
+  background-color: #1a5f7a7f;
+  border-radius: 10px;
+  margin: 0 20px;
+  outline: none;
+  resize: none;
+  color: white;
+}
+.uploadForm form .testReports input {
+  width: 75%;
+  background-color: #1a5f7a7f;
+  border-radius: 10px;
+  margin: 0 20px;
+  outline: none;
+  color: white;
+}
+.uploadForm form .disease input {
+  width: 75%;
+  /* height: 30px; */
+  background-color: #1a5f7a7f;
+  border-radius: 10px;
+  margin: 0 20px;
+  outline: none;
+  padding: 5px 15px;
+  color: white;
+}
+.uploadForm form .treatment textarea {
+  width: 75%;
+  padding: 10px;
+  height: 150px;
+  background-color: #1a5f7a7f;
+  border-radius: 10px;
+  margin: 0 20px;
+  outline: none;
+  resize: none;
+  color: white;
+}
+.uploadForm form .medication textarea {
+  width: 75%;
+  padding: 10px;
+  height: 150px;
+  background-color: #1a5f7a7f;
+  border-radius: 10px;
+  margin: 0 20px;
+  outline: none;
+  resize: none;
+  color: white;
+}
+.uploadForm form .bills input {
+  width: 75%;
+  background-color: #1a5f7a7f;
+  border-radius: 10px;
+  margin: 0 20px;
+  outline: none;
+  color: white;
+}
+.uploadForm form div label {
+  font-weight: 500;
+  color: white;
+}
+
+.uploadForm .btns button {
+  padding: 7px 70px;
+  background-color: #1a5f7a;
+  color: #159895;
+  border-radius: 5px;
+  /* margin-top: 20px; */
+}
+.uploadForm .btns {
+  display: flex;
+  gap: 2.5vw;
+  justify-content: center;
+}

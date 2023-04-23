@@ -1,0 +1,84 @@
+.allRecords {
+  width: 100%;
+}
+.allRecords .top {
+  display: flex;
+  gap: 2rem;
+}
+
+.top button {
+  width: 100px;
+  height: 40px;
+  font-size: 22px;
+  font-weight: 500;
+  background-color: #1a5f7a;
+  color: #002b5b;
+  border-radius: 5px;
+}
+
+.allRecords .bottom {
+  display: flex;
+  /* grid-template-columns: auto auto auto; */
+  flex-wrap: wrap;
+  margin-top: 50px;
+  gap: 5vw;
+}
+
+.record {
+  width: 320px;
+  height: 350px;
+  border-radius: 10px;
+  background-color: #1a5f7a76;
+  border: 1px solid #1a5f7a;
+  padding: 20px;
+}
+.record .date {
+  font-size: 15px;
+  color: #237494;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.record .docName {
+  font-size: 18px;
+  font-weight: 500;
+  color: #57c5b6;
+  margin-bottom: 20px;
+}
+.record .desease,
+.report,
+.medication,
+.bills {
+  font-size: 18px;
+  font-weight: 500;
+  color: #57c5b6;
+  margin-bottom: 10px;
+}
+.record .medicationDiv {
+  max-height: 80px;
+  max-width: 500px;
+  overflow: hidden;
+}
+/* .record p,
+.record a {
+  color: #57c5b6;
+  font-size: 15px;
+  font-weight: 500;
+} */
+
+.record .info {
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.9rem; */
+}
+
+.record .viewBtn button {
+  width: 100%;
+  margin: 20px 0px 0 0px;
+  background-color: #57c5b677;
+  border: 1px solid #57c5b6;
+  color: white;
+  padding: 5px 0;
+  border-radius: 10px;
+  font-weight: 500;
+}

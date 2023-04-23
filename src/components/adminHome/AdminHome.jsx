@@ -4,7 +4,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import "./admin.css";
 import EachDocApplication from "../eachDocApplication/EachDocApplication";
 
-function AdminHome() {
+function AdminHome({ contract, account }) {
   const [selectedBtn, setSelectedBtn] = useState(0);
   const [heading, setHeading] = useState("");
   const [urlIndex, setUrlIndex] = useState("");
@@ -13,36 +13,85 @@ function AdminHome() {
       name: "Jhony",
       time: "2023-04-19 10:30",
       state: "new",
+      about:
+        "Dr. Jhony is a highly qualified and experienced physician with [Number] years of clinical practice in [Specialty]. He/she graduated from [Medical School] in [Year] and completed his/her residency training in [Specialty] at [Hospital/Institution]. Dr. [Name] is board-certified in [Specialty] and is a member of several prestigious medical organization Throughout his/her career, Dr. [Name] has demonstrated a commitment to providing exceptional patient care, and has been recognized for his/her clinical expertise and compassionate bedside manner. He/she is dedicated to staying current with the latest advancements in his/her field and regularly attends continuing medical education programs.",
+      eduBackground:
+        "Harvard Medical School, located in Boston, Massachusetts, USA. University of Oxford Medical School, located in Oxford, England.",
+      certificates: [],
+      address:
+        "JJ Hospital, J J Marg, Nagpada-Mumbai Central, Off Jijabhoy Road, Mumbai, Maharashtra 400008, India.",
     },
     {
       name: "Bob",
       time: "2023-04-20 14:45 ",
       state: "new",
+      about:
+        "Dr. Bob is a highly qualified and experienced physician with [Number] years of clinical practice in [Specialty]. He/she graduated from [Medical School] in [Year] and completed his/her residency training in [Specialty] at [Hospital/Institution]. Dr. [Name] is board-certified in [Specialty] and is a member of several prestigious medical organization Throughout his/her career, Dr. [Name] has demonstrated a commitment to providing exceptional patient care, and has been recognized for his/her clinical expertise and compassionate bedside manner. He/she is dedicated to staying current with the latest advancements in his/her field and regularly attends continuing medical education programs.",
+      eduBackground:
+        "Harvard Medical School, located in Boston, Massachusetts, USA. University of Oxford Medical School, located in Oxford, England.",
+      certificates: [],
+      address:
+        "JJ Hospital, J J Marg, Nagpada-Mumbai Central, Off Jijabhoy Road, Mumbai, Maharashtra 400008, India.",
     },
     {
       name: "Charlie",
       time: "2023-04-18 08:15 ",
       state: "verified",
+      about:
+        "Dr. Charlie is a highly qualified and experienced physician with [Number] years of clinical practice in [Specialty]. He/she graduated from [Medical School] in [Year] and completed his/her residency training in [Specialty] at [Hospital/Institution]. Dr. [Name] is board-certified in [Specialty] and is a member of several prestigious medical organization Throughout his/her career, Dr. [Name] has demonstrated a commitment to providing exceptional patient care, and has been recognized for his/her clinical expertise and compassionate bedside manner. He/she is dedicated to staying current with the latest advancements in his/her field and regularly attends continuing medical education programs.",
+      eduBackground:
+        "Harvard Medical School, located in Boston, Massachusetts, USA. University of Oxford Medical School, located in Oxford, England.",
+      certificates: [],
+      address:
+        "JJ Hospital, J J Marg, Nagpada-Mumbai Central, Off Jijabhoy Road, Mumbai, Maharashtra 400008, India.",
     },
     {
       name: "David",
       time: "2023-04-21 16:00 ",
       state: "new",
+      about:
+        "Dr. David is a highly qualified and experienced physician with [Number] years of clinical practice in [Specialty]. He/she graduated from [Medical School] in [Year] and completed his/her residency training in [Specialty] at [Hospital/Institution]. Dr. [Name] is board-certified in [Specialty] and is a member of several prestigious medical organization Throughout his/her career, Dr. [Name] has demonstrated a commitment to providing exceptional patient care, and has been recognized for his/her clinical expertise and compassionate bedside manner. He/she is dedicated to staying current with the latest advancements in his/her field and regularly attends continuing medical education programs.",
+      eduBackground:
+        "Harvard Medical School, located in Boston, Massachusetts, USA. University of Oxford Medical School, located in Oxford, England.",
+      certificates: [],
+      address:
+        "JJ Hospital, J J Marg, Nagpada-Mumbai Central, Off Jijabhoy Road, Mumbai, Maharashtra 400008, India.",
     },
     {
       name: "Eve",
       time: "2023-04-17 19:20 ",
       state: "under verification",
+      about:
+        "Dr. Eve is a highly qualified and experienced physician with [Number] years of clinical practice in [Specialty]. He/she graduated from [Medical School] in [Year] and completed his/her residency training in [Specialty] at [Hospital/Institution]. Dr. [Name] is board-certified in [Specialty] and is a member of several prestigious medical organization Throughout his/her career, Dr. [Name] has demonstrated a commitment to providing exceptional patient care, and has been recognized for his/her clinical expertise and compassionate bedside manner. He/she is dedicated to staying current with the latest advancements in his/her field and regularly attends continuing medical education programs.",
+      eduBackground:
+        "Harvard Medical School, located in Boston, Massachusetts, USA. University of Oxford Medical School, located in Oxford, England.",
+      certificates: [],
+      address:
+        "JJ Hospital, J J Marg, Nagpada-Mumbai Central, Off Jijabhoy Road, Mumbai, Maharashtra 400008, India.",
     },
     {
       name: "Bob",
       time: "2023-04-20 14:45 ",
       state: "rejected",
+      about:
+        "Dr. Bob is a highly qualified and experienced physician with [Number] years of clinical practice in [Specialty]. He/she graduated from [Medical School] in [Year] and completed his/her residency training in [Specialty] at [Hospital/Institution]. Dr. [Name] is board-certified in [Specialty] and is a member of several prestigious medical organization Throughout his/her career, Dr. [Name] has demonstrated a commitment to providing exceptional patient care, and has been recognized for his/her clinical expertise and compassionate bedside manner. He/she is dedicated to staying current with the latest advancements in his/her field and regularly attends continuing medical education programs.",
+      eduBackground:
+        "Harvard Medical School, located in Boston, Massachusetts, USA. University of Oxford Medical School, located in Oxford, England.",
+      certificates: [],
+      address:
+        "JJ Hospital, J J Marg, Nagpada-Mumbai Central, Off Jijabhoy Road, Mumbai, Maharashtra 400008, India.",
     },
     {
       name: "Charlie",
       time: "2023-04-18 08:15 ",
       state: "verified",
+      about:
+        "Dr. Charlie is a highly qualified and experienced physician with [Number] years of clinical practice in [Specialty]. He/she graduated from [Medical School] in [Year] and completed his/her residency training in [Specialty] at [Hospital/Institution]. Dr. [Name] is board-certified in [Specialty] and is a member of several prestigious medical organization Throughout his/her career, Dr. [Name] has demonstrated a commitment to providing exceptional patient care, and has been recognized for his/her clinical expertise and compassionate bedside manner. He/she is dedicated to staying current with the latest advancements in his/her field and regularly attends continuing medical education programs.",
+      eduBackground:
+        "Harvard Medical School, located in Boston, Massachusetts, USA. University of Oxford Medical School, located in Oxford, England.",
+      certificates: [],
+      address:
+        "JJ Hospital, J J Marg, Nagpada-Mumbai Central, Off Jijabhoy Road, Mumbai, Maharashtra 400008, India.",
     },
   ]);
 
