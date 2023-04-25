@@ -6,7 +6,9 @@ function TopNav({ contract, account }) {
   PAddressRef = useRef();
   const [isDoc, setIsDoc] = useState(false);
   const [haveAccess, setHaveAccess] = useState(!isDoc);
-
+  const formattedAddress = `${account.substring(0, 6)}....${account.substring(
+    account.length - 6
+  )}`;
   useEffect(() => {
     const getDoctorList = async () => {
       const docList = await contract.get_doctor_list();
@@ -58,7 +60,7 @@ function TopNav({ contract, account }) {
         </form>
       </div>
       <div className="right">
-        <p className="address">{account}</p>
+        <p className="address">{formattedAddress}</p>
         <div className="profile"></div>
       </div>
     </div>

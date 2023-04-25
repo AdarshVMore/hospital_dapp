@@ -11,6 +11,9 @@ function UploadForm({ contract, account }) {
   const treatmentRef = useRef(null);
   const medicationRef = useRef(null);
   const diseaseRef = useRef(null);
+  const [accessList, setAccessList] = useState([]);
+  const [haveAccess, setHaveAccess] = useState(false);
+
   const NFT_STORAGE_TOKEN =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGY3ODMyQTkyZjgzMzYwRDYyNmQwNkU2MjAzOEM4NDkyNWEyYUIwRDciLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY4MDQxNTYxNDg1MywibmFtZSI6Imhvc3BpdGFsLWRhcHAifQ.jwamWRhXby27Er2UsaoxSqikdZRSQSlB39CCR9c4S7Y";
   const client = new NFTStorage({ token: NFT_STORAGE_TOKEN });
@@ -20,12 +23,6 @@ function UploadForm({ contract, account }) {
 
   let reportCid;
   let billCid;
-
-  function savePrevData() {
-    symptomRef = document.getElementsByClassName("symp").value;
-    diagnosisRef = document.getElementsByClassName("diag").value;
-    diseaseRef = document.getElementsByClassName("dise").value;
-  }
 
   const getReportFile = async (e) => {
     const file = e.target.files[0];
@@ -43,6 +40,20 @@ function UploadForm({ contract, account }) {
     reportCid = await client.storeBlob(someData);
     console.log(reportCid);
     setReportCID(reportCid.toString());
+  };
+
+  const getAccessList = async () => {
+    console.log(PatientAddress.current.value);
+    const list = await contract.get_accessed_doctorlist_for_patient(
+      PatientAddress.current.value
+    );
+    setAccessList(list);
+    for (let i = 0; i < accessList.length; i++) {
+      const name = await contract.get_doctor(accessList[i]);
+    }
+    accessList.map((item, index) =>
+      item === account ? setHaveAccess(true) : ""
+    );
   };
 
   const addRecord = async (e) => {
@@ -92,7 +103,14 @@ function UploadForm({ contract, account }) {
             <div className="form-left">
               <div className="disease">
                 <label htmlFor="">Patient's Address</label>
-                <input className="dise" type="disease" ref={PatientAddress} />
+                <input
+                  className="dise"
+                  type="disease"
+                  ref={PatientAddress}
+                  onChange={() => {
+                    getAccessList();
+                  }}
+                />
               </div>
               <div className="symptoms">
                 <label htmlFor="symptoms">Symptoms :</label>
@@ -132,7 +150,10 @@ function UploadForm({ contract, account }) {
             </div>
           </div>
           <div className="btns">
-            <button className="addRecord-btn" onClick={addRecord}>
+            <button
+              className="addRecord-btn"
+              onClick={haveAccess ? addRecord : ""}
+            >
               Add Record
             </button>
             <button>Start Treatment</button>
