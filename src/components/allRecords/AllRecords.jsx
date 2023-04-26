@@ -63,6 +63,7 @@ function AllRecords({ contract, account, isDoc }) {
                     <a
                       href={`https://ipfs.io/ipfs/${record.report}`}
                       className="report"
+                      target="_blank"
                     >
                       Report
                     </a>
@@ -72,6 +73,7 @@ function AllRecords({ contract, account, isDoc }) {
                     <a
                       href={`https://ipfs.io/ipfs/${record.bill}`}
                       className="bills"
+                      target="_blank"
                     >
                       Bills
                     </a>
