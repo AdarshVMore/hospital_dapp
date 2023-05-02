@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TopNav from "../../components/topNav/TopNav";
 import Nav2 from "../../components/Nav2/Nav2";
 import MainContainer from "../../components/mainContainer/MainContainer";
@@ -8,6 +8,30 @@ import UplodForm from "../../components/uploadForm/UploadForm";
 import { Routes, Route } from "react-router-dom";
 
 function Home({ contract, account }) {
+  useEffect(() => {
+    const checkLogin = async () => {
+      const PList = await contract.get_patient_list();
+      console.log(PList);
+      const DList = await contract.get_doctor_list();
+      console.log(DList);
+
+      for (let i = 0; i < PList.length; i++) {
+        if (account !== PList[i]) {
+          window.location.href = "/register";
+          alert("You have not registered yet");
+        }
+      }
+
+      for (let i = 0; i < DList.length; i++) {
+        if (account !== DList[i]) {
+          window.location.href = "/register";
+          alert("You have not registered yet");
+        }
+      }
+    };
+    checkLogin();
+  });
+
   return (
     <div>
       <Routes>

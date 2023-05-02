@@ -16,7 +16,7 @@ function AllRecords({ contract, account, isDoc }) {
     }
     console.log(addr);
 
-    const Info = await contract.get_patient(addr);
+    const Info = await contract.get_Single_patient(addr);
     console.log(Info);
     setPatientInfo(Info);
     setClick(true);

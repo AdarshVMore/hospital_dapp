@@ -4,9 +4,7 @@ pragma solidity ^0.8.0;
 
 contract Hospital {
 
-    address admin = 0x4ef1DBC2f04eBedD954FF762b5d23B9040916F56;
-    
-
+    address[] public admin;
 
     struct record{
         address patientAddress;
@@ -20,8 +18,6 @@ contract Hospital {
         string bill;
         string state;
     }
-
-    
     
     struct patient {
         string name;
@@ -33,6 +29,11 @@ contract Hospital {
     struct doctor {
         string name;
         uint age;
+        string medicalLicense;
+        string aboutYou;
+        string eduBackground;
+        string hospitalAddress;
+        string certificates;
         address[] patientAccessList;
         record[] docAddedRecords;
     }
@@ -67,6 +68,28 @@ contract Hospital {
        }
     }
 
+    function add_doctor(address addr ,string memory _name, uint _age, string memory _medicalLicense, string memory _aboutYou, string memory _eduBackground, string memory _hospitalAddress, string memory _certificates ) public {
+        doctorInfo[addr].name = _name;
+            doctorInfo[addr].age = _age;
+            doctorInfo[addr].medicalLicense = _medicalLicense;
+            doctorInfo[addr].aboutYou = _aboutYou;
+            doctorInfo[addr].certificates = _certificates;
+            doctorInfo[addr].eduBackground = _eduBackground;
+            doctorInfo[addr].hospitalAddress = _hospitalAddress;
+            doctorList.push(addr);
+    }
+
+    function add_Admin(address addr) public {
+        bool isAdmin;
+        for(uint i = 0; i<admin.length; i++){
+            if(admin[i] == addr){
+                isAdmin = true;
+            }
+        }
+        require(isAdmin, "you are not an admin");
+        admin.push(addr);
+    }
+
     function add_record(address _patientAddress, string memory _doctorName , string memory _symptoms, string memory _diagnosis, string memory _treatment, string memory _medication, string memory _detail, string memory _report, string memory _bill) public {
         bool check = false;
         for(uint i = 0; i<doctorList.length; i++){
@@ -80,17 +103,16 @@ contract Hospital {
         doctorInfo[msg.sender].docAddedRecords.push(new_record);
     }
 
-
-    function get_patient(address addr) view public returns (string memory , uint, record[] memory){
+    function get_Single_patient(address addr) view public returns (string memory , uint, record[] memory){
         return (patientInfo[addr].name, patientInfo[addr].age, patientInfo[addr].records);
     }
 
-    function get_Doctors_Patient(address addr) view public returns (record[] memory){
-        return (doctorInfo[addr].docAddedRecords);
+    function get_Single_doctor(address addr) view public returns (string memory, uint ,string memory, string memory, string memory, string memory, string memory){
+        return (doctorInfo[addr].name, doctorInfo[addr].age, doctorInfo[addr].medicalLicense, doctorInfo[addr].aboutYou, doctorInfo[addr].eduBackground, doctorInfo[addr].hospitalAddress, doctorInfo[addr].certificates);
     }
-    
-    function get_doctor(address addr) view public returns (string memory , uint){
-        return (doctorInfo[addr].name, doctorInfo[addr].age);
+
+    function get_My_Patients(address addr) view public returns (record[] memory){
+        return ( doctorInfo[addr].docAddedRecords);
     }
     
     function get_patient_doctor_name(address paddr, address daddr) view public returns (string memory , string memory ){
@@ -130,11 +152,8 @@ contract Hospital {
 
     function get_accessed_doctorlist_for_patient(address addr) public view returns (address[] memory ){ 
         address[] storage doctoraddr = patientInfo[addr].doctorAccessList;
-        string[] docNames;
-        for(uint i = 0; i < Doctoraddr.length; i++) {
-            docNames.push(get_doctor(Doctoraddr[i])[0]);
-        }
-        return doctoraddr;
+        
+        return ( doctoraddr);
     }
 
     function revoke_access(address daddr) public {

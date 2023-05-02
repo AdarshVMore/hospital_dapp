@@ -21,8 +21,11 @@ function Signin({ contract, account }) {
 
   const add_patient = async (e) => {
     e.preventDefault();
+    console.log("adding patient .....");
     const pname = pnameRef.current.value;
     const page = pageRef.current.value;
+    console.log(" adding patient named", pname, "age:", page);
+
     const addingPatient = await contract.add_agent(pname, page, 0);
     console.log("patient added named", pname, "age:", page);
   };
@@ -42,7 +45,30 @@ function Signin({ contract, account }) {
     } else if (user === 1) {
       sliderElement.style.transform = "translateX(62px)";
     }
-  }, [user]);
+    const checkLogin = async () => {
+      const PList = await contract.get_patient_list();
+      console.log(PList);
+      const DList = await contract.get_doctor_list();
+      console.log(DList);
+
+      for (let i = 0; i < PList.length; i++) {
+        if (account !== PList[i]) {
+        } else {
+          alert("You are already registered, redirecting to home ");
+          window.location.href = "/";
+        }
+      }
+
+      for (let i = 0; i < DList.length; i++) {
+        if (account !== DList[i]) {
+        } else {
+          alert("You are already registered, redirecting to home ");
+          window.location.href = "/";
+        }
+      }
+    };
+    checkLogin();
+  }, [account]);
 
   return (
     <div className="signin">
