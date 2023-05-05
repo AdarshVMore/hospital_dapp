@@ -30,6 +30,7 @@
 }
 .slide-btn .slider {
   position: absolute;
+  transform: translateX(-62px);
   z-index: 1;
   background: #159895;
   width: 125px;

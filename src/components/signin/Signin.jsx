@@ -9,6 +9,8 @@ function Signin({ contract, account }) {
   const pageRef = useRef();
   const dnameRef = useRef();
   const dageRef = useRef();
+  const [loggedIn, setLoggedIn] = useState(0);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const registerAsP = async (e) => {
     setOpt("P");
@@ -55,25 +57,38 @@ function Signin({ contract, account }) {
       console.log(PList);
       const DList = await contract.get_doctor_list();
       console.log(DList);
+      const AdminList = await contract.get_admin_list();
+      console.log(AdminList);
+
+      for (let i = 0; i < AdminList.length; i++) {
+        if (account === AdminList[i]) {
+          setIsAdmin(true);
+          window.location.href = "/admin";
+        }
+      }
 
       for (let i = 0; i < PList.length; i++) {
-        if (account !== PList[i]) {
-        } else {
-          alert("You are already registered, redirecting to home ");
+        if (account === PList[i]) {
+          console.log("he is a patient");
+          setLoggedIn(1);
           window.location.href = "/";
         }
       }
 
-      for (let i = 0; i < DList.length; i++) {
-        if (account !== DList[i]) {
-        } else {
-          alert("You are already registered, redirecting to home ");
-          window.location.href = "/";
+      if (loggedIn === 0) {
+        for (let i = 0; i < DList.length; i++) {
+          if (account === DList[i]) {
+            console.log("he is a doctor");
+            setLoggedIn(1);
+            window.location.href = "/";
+          }
         }
       }
+
+      console.log(loggedIn);
     };
     checkLogin();
-  }, [account]);
+  }, [account, contract]);
 
   return (
     <div className="signin">

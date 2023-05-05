@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 
 contract Hospital {
 
-    address[] public admin;
+    address[] public admin = [0x4ef1DBC2f04eBedD954FF762b5d23B9040916F56];
 
     struct record{
         address patientAddress;
@@ -166,5 +166,9 @@ contract Hospital {
 
     function get_doctor_list() public view returns(address[] memory ){
         return doctorList;
+    }
+
+    function get_admin_list() public view returns(address[] memory) {
+        return admin;
     }
 }

@@ -8,6 +8,7 @@ function AdminHome({ contract, account }) {
   const [selectedBtn, setSelectedBtn] = useState(0);
   const [heading, setHeading] = useState("");
   const [urlIndex, setUrlIndex] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
   const [data, setData] = useState([
     {
       name: "Jhony",
@@ -96,6 +97,20 @@ function AdminHome({ contract, account }) {
   ]);
 
   useEffect(() => {
+    const adminCheck = async () => {
+      const AdminList = await contract.get_admin_list();
+      console.log(AdminList);
+
+      for (let i = 0; i < AdminList.length; i++) {
+        if (account === AdminList[i]) {
+          window.location.href = "/admin";
+        } else {
+          window.location.href = "/";
+        }
+      }
+    };
+
+    adminCheck();
     if (selectedBtn === 0) {
       setHeading("All Applications");
     }
