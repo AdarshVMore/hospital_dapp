@@ -28,6 +28,7 @@ function Signin({ contract, account }) {
 
     const addingPatient = await contract.add_agent(pname, page, 0);
     console.log("patient added named", pname, "age:", page);
+    window.location.href = "/";
   };
 
   const add_doctor = async (e) => {
@@ -36,15 +37,19 @@ function Signin({ contract, account }) {
     const dage = dageRef.current.value;
     const addingDoctor = await contract.add_agent(dname, dage, 1);
     console.log("Doctor added named", dname, "age:", dage);
+    window.location.href = "/";
+  };
+  const sliderElement = document.getElementsByClassName("slider")[0];
+
+  const slide_it = () => {
+    if (user === 0) {
+      sliderElement.style.transform = "translateX(62px)";
+    } else if (user === 1) {
+      sliderElement.style.transform = "translateX(-62px)";
+    }
   };
 
   useEffect(() => {
-    const sliderElement = document.getElementsByClassName("slider")[0];
-    if (user === 0) {
-      sliderElement.style.transform = "translateX(-62px)";
-    } else if (user === 1) {
-      sliderElement.style.transform = "translateX(62px)";
-    }
     const checkLogin = async () => {
       const PList = await contract.get_patient_list();
       console.log(PList);
@@ -73,7 +78,12 @@ function Signin({ contract, account }) {
   return (
     <div className="signin">
       <div className="top-most">
-        <div className="slide-btn">
+        <div
+          className="slide-btn"
+          onClick={() => {
+            slide_it();
+          }}
+        >
           <span
             className="patient"
             onClick={() => {
